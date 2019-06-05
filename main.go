@@ -120,6 +120,11 @@ func httpGet(q string , id string) {
     q = strings.Replace( q , " " , "," , -1)    
     //q = strings.Replace("oink oink oink", "oink", "moo", -1)
     // 140.115.54.66 new ip
+	time.AfterFunc(5*time.Second, func() {
+// 	      println("3 seconds timeout")
+		echo = string("小幫手正在休息維護中~ 請多多包涵~")
+		return
+	})
     resp, err := http.Get("http://140.115.54.93:8088/?botType=56&q="+q+"&id="+id)
     if err != nil {
         // handle error
