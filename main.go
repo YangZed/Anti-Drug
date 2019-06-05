@@ -123,7 +123,8 @@ func httpGet(q string , id string) {
     resp, err := http.Get("http://140.115.54.93:8088/?botType=56&q="+q+"&id="+id)
     if err != nil {
         // handle error
-	    echo = "小幫手正在休息維護中~ 請多多包涵~"
+	    defer resp.Body.Close()
+	    echo = string("小幫手正在休息維護中~ 請多多包涵~")
        //panic(err.Error())
     }else{
 	    defer resp.Body.Close()
@@ -134,7 +135,7 @@ func httpGet(q string , id string) {
 	    if err != nil {
 		// handle error
 	      // panic(err.Error())
-		    echo = "小幫手正在休息維護中~ 請多多包涵~"
+		    echo = string("小幫手正在休息維護中~ 請多多包涵~")
 	    }else{
 
 		echo = string(body) 
