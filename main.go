@@ -125,72 +125,73 @@ func httpGet(q string , id string) {
         // handle error
 	    echo = "小幫手正在休息維護中~ 請多多包涵~"
        //panic(err.Error())
-    }
-    defer resp.Body.Close()
-    
-    
-     
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        // handle error
-      // panic(err.Error())
-	    echo = "小幫手正在休息維護中~ 請多多包涵~"
     }else{
-    
-    	echo = string(body) 
-    }
-    	
-    if echo == "請問您所處的地點是"{
-       bottun = true
-    }
-   
-    // _, err = bot.PushMessage("Uf6263c4b814700c680228b8b64a27dd6", linebot.NewTextMessage(echo)).Do()
-   
-    
-    //------------for Luis
-    // var r =  map[string]interface{}{}
-    // var tempString string
-    // tempString =string(body) 
-   
+	    defer resp.Body.Close()
 
-    // temp1 := strings.Split(tempString,"entity")
-    // temp2 := strings.Split(tempString,"\"Type")
-    // entity := list.New()
-    // Type := list.New()
-    // for i := 0; i < len(temp1); i++ {
-    //   if i>=1{
-    //     entity.PushBack( strings.Split(strings.Split(temp1[i],"\",")[0],":\"")[1] )
-    //   }
-    // }
-    // for i := 0; i < len(temp2); i++ {
-    //   if i>=1{
-    //     Type.PushBack( strings.Split(strings.Split(temp2[i],"\"}")[0],":\"")[1] )
-    //   }
-    // }
-    // json.Unmarshal(body, &r)
-    
 
-    // if r["resultType"].(string) == "none" {
-    //   echo = "我不了解你在說什麼～@@"
-    // } else if r["resultType"].(string) == "greeting" {
-    //   echo = "你好！我是LUIS！我可以提供您數學的教材或是練習題喔！"
-    // } else if r["resultType"].(string) == "appreciation" {
-    //   echo = "歡迎您再次使用LUIS!我很樂意再次提供您服務！"
-    // } else if r["resultType"].(string) == "connectionError" {
-    //   echo = "對不起，我出了點問題，現在沒辦法回答你問題@@"
-    // } else if r["resultType"].(string) == "unknown" {
-    //   echo = "不好意思，我不知道你問的定理是什麼QQ"
-    // } else if r["resultType"].(string) == "question" {
-    //   if r["requirementType"].(string) == "none" {
-    //     bottun = true
-    //     for e:= entity.Front();e!=nil;e = e.Next(){
-         
-    //      op += e.Value.(string) 
-    //     }
-    //   } 
-    // }
-    
-    //-----------------for luis
+
+	    body, err := ioutil.ReadAll(resp.Body)
+	    if err != nil {
+		// handle error
+	      // panic(err.Error())
+		    echo = "小幫手正在休息維護中~ 請多多包涵~"
+	    }else{
+
+		echo = string(body) 
+	    }
+
+	    if echo == "請問您所處的地點是"{
+	       bottun = true
+	    }
+
+	    // _, err = bot.PushMessage("Uf6263c4b814700c680228b8b64a27dd6", linebot.NewTextMessage(echo)).Do()
+
+
+	    //------------for Luis
+	    // var r =  map[string]interface{}{}
+	    // var tempString string
+	    // tempString =string(body) 
+
+
+	    // temp1 := strings.Split(tempString,"entity")
+	    // temp2 := strings.Split(tempString,"\"Type")
+	    // entity := list.New()
+	    // Type := list.New()
+	    // for i := 0; i < len(temp1); i++ {
+	    //   if i>=1{
+	    //     entity.PushBack( strings.Split(strings.Split(temp1[i],"\",")[0],":\"")[1] )
+	    //   }
+	    // }
+	    // for i := 0; i < len(temp2); i++ {
+	    //   if i>=1{
+	    //     Type.PushBack( strings.Split(strings.Split(temp2[i],"\"}")[0],":\"")[1] )
+	    //   }
+	    // }
+	    // json.Unmarshal(body, &r)
+
+
+	    // if r["resultType"].(string) == "none" {
+	    //   echo = "我不了解你在說什麼～@@"
+	    // } else if r["resultType"].(string) == "greeting" {
+	    //   echo = "你好！我是LUIS！我可以提供您數學的教材或是練習題喔！"
+	    // } else if r["resultType"].(string) == "appreciation" {
+	    //   echo = "歡迎您再次使用LUIS!我很樂意再次提供您服務！"
+	    // } else if r["resultType"].(string) == "connectionError" {
+	    //   echo = "對不起，我出了點問題，現在沒辦法回答你問題@@"
+	    // } else if r["resultType"].(string) == "unknown" {
+	    //   echo = "不好意思，我不知道你問的定理是什麼QQ"
+	    // } else if r["resultType"].(string) == "question" {
+	    //   if r["requirementType"].(string) == "none" {
+	    //     bottun = true
+	    //     for e:= entity.Front();e!=nil;e = e.Next(){
+
+	    //      op += e.Value.(string) 
+	    //     }
+	    //   } 
+	    // }
+
+	    //-----------------for luis
+    }
     
 }
 
