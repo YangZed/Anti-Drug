@@ -132,11 +132,11 @@ func httpGet(q string , id string) {
     if err != nil {
         // handle error
        panic(err.Error())
-	    body := "小幫手正在休息維護中~ 請多多包涵~"
-    }
+	    echo = "小幫手正在休息維護中~ 請多多包涵~"
+    }else{
     
-    echo = string(body) 
-
+    	echo = string(body) 
+    }
     if echo == "請問您所處的地點是"{
        bottun = true
     }
