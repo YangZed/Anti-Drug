@@ -132,7 +132,7 @@ func httpGet(q string , id string) {
     if err != nil {
         // handle error
        panic(err.Error())
-	body = "小幫手正在休息維護中~ 請多多包涵~"
+	    body := "小幫手正在休息維護中~ 請多多包涵~"
     }
     
     echo = string(body) 
