@@ -16,7 +16,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"time
+	"time"
   //"unicode/utf8"
   //"container/list"
   //"bytes"
@@ -111,6 +111,9 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 // 		dbinfo=col1
 // 	}
 // }
+func maintain(){
+	echo = string("小幫手正在休息維護中~ 請多多包涵~")
+}
 func httpGet(q string , id string) {
 	
     echo = "OK"
@@ -120,11 +123,11 @@ func httpGet(q string , id string) {
     q = strings.Replace( q , " " , "," , -1)    
     //q = strings.Replace("oink oink oink", "oink", "moo", -1)
     // 140.115.54.66 new ip
-	time.AfterFunc(5*time.Second, func() {
-// 	      println("3 seconds timeout")
-		echo = string("小幫手正在休息維護中~ 請多多包涵~")
-		return
-	})
+// 	time.AfterFunc(5*time.Second, func() {
+// // 	      println("3 seconds timeout")
+// 		echo = string("小幫手正在休息維護中~ 請多多包涵~")
+// 		return
+// 	})
     resp, err := http.Get("http://140.115.54.93:8088/?botType=56&q="+q+"&id="+id)
     if err != nil {
         // handle error
@@ -221,7 +224,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.TextMessage:
                 echo ="OK"
                 bottun = false
-                httpGet(message.Text,event.Source.UserID)
+//                 httpGet(message.Text,event.Source.UserID)
+				maintain
                 if bottun {
                     uri := linebot.NewURITemplateAction("提供地點","line://nv/location")
                     template := linebot.NewButtonsTemplate("","地點","請問您目前所處的地點是?", uri)
