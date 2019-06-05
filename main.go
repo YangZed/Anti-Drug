@@ -16,6 +16,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"time"
   //"unicode/utf8"
   //"container/list"
   //"bytes"
@@ -137,6 +138,10 @@ func httpGet(q string , id string) {
     
     	echo = string(body) 
     }
+    time.Sleep(time.Second * 5)
+    if echo == "OK"{
+       echo = "小幫手正在休息維護中~ 請多多包涵~"
+    }	
     if echo == "請問您所處的地點是"{
        bottun = true
     }
