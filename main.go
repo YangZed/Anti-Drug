@@ -19,7 +19,9 @@ import (
   //"unicode/utf8"
   //"container/list"
   //"bytes"
-	"net/http"
+// 	"net/http"
+	"github.com/parnurzeal/gorequest"
+	
 	//"encoding/json"
 	//"net/url"
     "strings"
@@ -128,7 +130,7 @@ func httpGet(q string , id string) {
 // 		return
 // 	})
      ServerUrl := os.Getenv("ServerUrl")
-	q = string(q)
+	q = url.QueryEscape(q)
     resp, err := http.Get(ServerUrl+q+"&id="+id)
     if err != nil {
         // handle error
