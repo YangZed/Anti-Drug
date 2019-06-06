@@ -223,8 +223,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.TextMessage:
                 echo ="OK"
                 bottun = false
-//                 httpGet(message.Text,event.Source.UserID)
-				maintain()
+                httpGet(message.Text,event.Source.UserID)
+// 				maintain()
                 if bottun {
                     uri := linebot.NewURITemplateAction("提供地點","line://nv/location")
                     template := linebot.NewButtonsTemplate("","地點","請問您目前所處的地點是?", uri)
