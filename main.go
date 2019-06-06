@@ -127,7 +127,7 @@ func httpGet(q string , id string) {
 // 		echo = string("小幫手正在休息維護中~ 請多多包涵~")
 // 		return
 // 	})
-    resp, err := http.Get("http://140.115.54.93:8088/?botType=56&q="+q+"&id="+id)
+    resp, err := http.Get("http://140.115.54.90:10029/answer?question="+q+"&id="+id)
     if err != nil {
         // handle error
 	    defer resp.Body.Close()
