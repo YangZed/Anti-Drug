@@ -127,8 +127,9 @@ func httpGet(q string , id string) {
 // 		echo = string("小幫手正在休息維護中~ 請多多包涵~")
 // 		return
 // 	})
-//      ServerUrl := os.Getenv("ServerUrl")
-    resp, err := http.Get("http://140.115.54.90:10029/answer?question="+q+"&id="+id)
+     ServerUrl := os.Getenv("ServerUrl")
+	q = string(q)
+    resp, err := http.Get(ServerUrl+q+"&id="+id)
     if err != nil {
         // handle error
 	    defer resp.Body.Close()
