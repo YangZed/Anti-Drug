@@ -241,10 +241,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 
                 } else {           
 		
-			image_url := "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjYmYCdzP_iAhV6JaYKHSr2DcEQjRx6BAgBEAU&url=https%3A%2F%2Fnews.ltn.com.tw%2Fnews%2Fworld%2Fbreakingnews%2F2063848&psig=AOvVaw2zNn6cBbbn6JMOYA0LlXzj&ust=1561379005837125"
+			image_url := "https://img.ltn.com.tw/Upload/liveNews/BigPic/600_php9tOvMi.jpg"
 			
 			text_message := linebot.NewTextMessage( echo )
-			if strings.Contains(echo,"海洛因"){
+			if strings.Contains(echo,"海洛因："){
 				image_message := linebot.NewImageMessage(image_url, image_url)
 				_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
 			}else{
