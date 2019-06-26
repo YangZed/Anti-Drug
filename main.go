@@ -260,19 +260,19 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 // 							linebot.NewMessageAction("毒品等級", "海洛因的毒品等級"),
 // 							linebot.NewMessageAction("刑責", "海洛因的刑責"),
 // 						),
-// 					)
-					imageURL := "https://img.ltn.com.tw/Upload/liveNews/BigPic/600_php9tOvMi.jpg"
-					template_message := linebot.NewCarouselTemplate(
-						linebot.NewCarouselColumn(
-							imageURL, "hoge", "fuga",
-							linebot.NewMessageAction("症狀", "海洛因的症狀"),
-							linebot.NewMessageAction("毒品等級", "海洛因的毒品等級"),
-							linebot.NewMessageAction("刑責", "海洛因的刑責"),
-						),
+// // 					)
+// 					imageURL := "https://img.ltn.com.tw/Upload/liveNews/BigPic/600_php9tOvMi.jpg"
+// 					template_message := linebot.NewCarouselTemplate(
+// 						linebot.NewCarouselColumn(
+// 							imageURL, "hoge", "fuga",
+// 							linebot.NewMessageAction("症狀", "海洛因的症狀"),
+// 							linebot.NewMessageAction("毒品等級", "海洛因的毒品等級"),
+// 							linebot.NewMessageAction("刑責", "海洛因的刑責"),
+// 						),
 						
-					)
-					template := linebot.NewTemplateMessage("Sorry :(, please update your app.", template_message)
-					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message,template).Do()
+// 					)
+// 					template := linebot.NewTemplateMessage("Sorry :(, please update your app.", template_message)
+					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
 				}else{
 					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
 				}
