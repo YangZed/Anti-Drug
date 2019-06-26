@@ -272,13 +272,14 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						
 // 					)
 // 					template := linebot.NewTemplateMessage("Sorry :(, please update your app.", template_message)
-					ac1 := linebot.NewMessageAction("症狀", "海洛因的症狀")
-					ac2 := linebot.NewMessageAction("毒品等級", "海洛因的毒品等級")
-					ac3 := linebot.NewMessageAction("刑責", "海洛因的刑責")
-                   		   	template := linebot.NewButtonsTemplate("","海洛因","相關的其他知識", ac1, ac2, ac3)
-                    			templatemessgage := linebot.NewTemplateMessage("Sorry :(, please update your app.", template)
+// 					ac1 := linebot.NewMessageAction("症狀", "海洛因的症狀")
+// 					ac2 := linebot.NewMessageAction("毒品等級", "海洛因的毒品等級")
+// 					ac3 := linebot.NewMessageAction("刑責", "海洛因的刑責")
+//                    		   	template := linebot.NewButtonsTemplate("","海洛因","相關的其他知識", ac1, ac2, ac3)
+//                     			templatemessgage := linebot.NewTemplateMessage("Sorry :(, please update your app.", template)					
+// 					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message, templatemessgage).Do()
 					
-					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message, templatemessgage).Do()
+					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
 				}else{
 					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
 				}
