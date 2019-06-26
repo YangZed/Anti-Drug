@@ -241,14 +241,20 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 
                 } else {           
 		
-			image_url := "https://img.ltn.com.tw/Upload/liveNews/BigPic/600_php9tOvMi.jpg"
+// 			image_url := "https://img.ltn.com.tw/Upload/liveNews/BigPic/600_php9tOvMi.jpg"
 			
-			text_message := linebot.NewTextMessage( echo )
-			if strings.Contains(echo,"海洛因："){
+			
+			if strings.Contains(echo,"picture_url="){
+				aaa := strings.Split(echo, "picture_url=" )
+				bbb := aaa[0]
+				image_url := aaa[1]
+				
+				text_message := linebot.NewTextMessage( bbb )
 				image_message := linebot.NewImageMessage(image_url, image_url)
 				_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
 			}else{
-				_, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage( echo )).Do()
+				text_message := linebot.NewTextMessage( echo )
+				_, err = bot.ReplyMessage(event.ReplyToken, text_message).Do()
 			}
 				
 			
