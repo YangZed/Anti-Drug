@@ -251,7 +251,21 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				
 				text_message := linebot.NewTextMessage( bbb )
 				image_message := linebot.NewImageMessage(image_url, image_url)
-				_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
+				if strings.Contains(echo,"海洛因："){
+					template_message := linebot.NewCarouselTemplate(
+						linebot.NewCarouselColumn(
+							"海洛因", "海洛因2",
+							linebot.NewMessageAction("症狀", "海洛因的症狀"),
+							linebot.NewMessageAction("毒品等級", "海洛因的毒品等級"),
+							linebot.NewMessageAction("刑責", "海洛因的刑責")
+						)
+					)
+					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message,template_message).Do()
+				}else{
+					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
+				}
+				
+				
 			}else{
 				text_message := linebot.NewTextMessage( echo )
 				_, err = bot.ReplyMessage(event.ReplyToken, text_message).Do()
