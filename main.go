@@ -252,13 +252,26 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				text_message := linebot.NewTextMessage( bbb )
 				image_message := linebot.NewImageMessage(image_url, image_url)
 				if strings.Contains(echo,"海洛因："){
-					imageURL :=""
+// 					imageURL :=""
+// 					template_message := linebot.NewCarouselTemplate(
+// 						linebot.NewCarouselColumn(
+// 							imageURL ,"海洛因", "海洛因2",
+// 							linebot.NewMessageAction("症狀", "海洛因的症狀"),
+// 							linebot.NewMessageAction("毒品等級", "海洛因的毒品等級"),
+// 							linebot.NewMessageAction("刑責", "海洛因的刑責"),
+// 						),
+// 					)
+					imageURL := "https://img.ltn.com.tw/Upload/liveNews/BigPic/600_php9tOvMi.jpg"
 					template_message := linebot.NewCarouselTemplate(
 						linebot.NewCarouselColumn(
-							imageURL ,"海洛因", "海洛因2",
-							linebot.NewMessageAction("症狀", "海洛因的症狀"),
-							linebot.NewMessageAction("毒品等級", "海洛因的毒品等級"),
-							linebot.NewMessageAction("刑責", "海洛因的刑責"),
+							imageURL, "hoge", "fuga",
+							linebot.NewURIAction("Go to line.me", "https://line.me"),
+							linebot.NewPostbackAction("Say hello1", "hello こんにちは", "", ""),
+						),
+						linebot.NewCarouselColumn(
+							imageURL, "hoge", "fuga",
+							linebot.NewPostbackAction("言 hello2", "hello こんにちは", "hello こんにちは", ""),
+							linebot.NewMessageAction("Say message", "Rice=米"),
 						),
 					)
 					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message,template_message).Do()
