@@ -134,10 +134,10 @@ func httpGet(q string , id string) {
      ServerUrl := os.Getenv("ServerUrl")
 	q = url.QueryEscape(q)
 	
-	echo = string("小幫手正在休息維護中~ 請多多包涵~")
-	if 1==1{
-		return
-	}
+// 	echo = string("小幫手正在休息維護中~ 請多多包涵~")
+// // 	if 1==1{
+// // 		return
+// // 	}
     resp, err := http.Get(ServerUrl+q+"&id="+id)
     if err != nil {
         // handle error
