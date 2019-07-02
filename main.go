@@ -136,31 +136,31 @@ func httpGet(q string , id string) {
 	
 	echo = string("小幫手正在休息維護中~ 請多多包涵~")
 //     resp, err := http.Get(ServerUrl+q+"&id="+id)
-    if err != nil {
-        // handle error
-	    defer resp.Body.Close()
-	    echo = string("小幫手正在休息維護中~ 請多多包涵~")
-       //panic(err.Error())
-    }else{
-	    defer resp.Body.Close()
+//     if err != nil {
+//         // handle error
+// 	    defer resp.Body.Close()
+// 	    echo = string("小幫手正在休息維護中~ 請多多包涵~")
+//        //panic(err.Error())
+//     }else{
+// 	    defer resp.Body.Close()
 
 
 
-	    body, err := ioutil.ReadAll(resp.Body)
-	    if err != nil {
-		// handle error
-	      // panic(err.Error())
-		    echo = string("小幫手正在休息維護中~ 請多多包涵~")
-	    }else{
+// 	    body, err := ioutil.ReadAll(resp.Body)
+// 	    if err != nil {
+// 		// handle error
+// 	      // panic(err.Error())
+// 		    echo = string("小幫手正在休息維護中~ 請多多包涵~")
+// 	    }else{
 
-		echo = string(body) 
-	    }
+// 		echo = string(body) 
+// 	    }
 
-	    if echo == "請問您所處的地點是"{
-	       bottun = true
-	    }
+// 	    if echo == "請問您所處的地點是"{
+// 	       bottun = true
+// 	    }
 
-    }
+//     }
     
 }
 
