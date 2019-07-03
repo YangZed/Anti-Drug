@@ -203,13 +203,14 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			
 			
 			if strings.Contains(echo,"picture_url="){
-				aaa := strings.Split(echo, "picture_url=" )
+				aaa := strings.Split(echo, "picture_url=")
 				bbb := aaa[0]
 				image_url := aaa[1]
+				drug_name := strings.Split(bbb, "：")[0]
 				
 				text_message := linebot.NewTextMessage( bbb )
 				image_message := linebot.NewImageMessage(image_url, image_url)
-				if strings.Contains(echo,"海洛因："){
+				
 // 					imageURL :=""
 // 					template_message := linebot.NewCarouselTemplate(
 // 						linebot.NewCarouselColumn(
@@ -230,17 +231,15 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						
 // 					)
 // 					template := linebot.NewTemplateMessage("Sorry :(, please update your app.", template_message)
-					ac1 := linebot.NewMessageTemplateAction("症狀", "海洛因的症狀")
-					ac2 := linebot.NewMessageTemplateAction("毒品等級", "海洛因的毒品等級")
-					ac3 := linebot.NewMessageTemplateAction("刑責", "海洛因的刑責")
-                   		   	template := linebot.NewButtonsTemplate("","海洛因","相關的其他知識", ac1, ac2, ac3)
+					ac1 := linebot.NewMessageTemplateAction("症狀", drug_name + "的症狀")
+					ac2 := linebot.NewMessageTemplateAction("毒品等級", drug_name + "毒品等級")
+					ac3 := linebot.NewMessageTemplateAction("刑責", drug_name + "的刑責")
+                   		   	template := linebot.NewButtonsTemplate("",drug_name,"你可能也想知道的其他內容", ac1, ac2, ac3)
                     			templatemessgage := linebot.NewTemplateMessage("Sorry :(, please update your app.", template)					
 					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message, templatemessgage).Do()
 					
 // 					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
-				}else{
-					_, err = bot.ReplyMessage(event.ReplyToken,text_message, image_message).Do()
-				}
+				
 				
 				
 			}else{
